@@ -1,0 +1,89 @@
+Spring Booot & Micro Services
+-----------------------------
+
+Spring Framework
+----------------
+
+Spring Container :
+
+1. Scan your Classes (Spring Bean)
+2. Create object to them
+3. Provide data to variables
+4. Link one Object with another object
+5. Finally (while Stopping) Destroy the objects and Container.
+
+1. Scan 
+2. Object
+3. Data
+4. Link
+5. Destroy
+
+Example  
+-------
+1. Spring Bean
+package com.nit.sarath
+public class MyDBConnection {
+ private String driver;
+ private String url;
+ private String un;
+ private String pwd;
+ //setters and getters.. toString()...
+}
+2. Spring Config (XML Configuration)
+
+<bean class = "com.nit.sarath" id ="com">
+  <property name="driver" value="OracleDriver"/>
+  <property name="url" value="jdbc:oracle..."/>
+  <property name="un" value="nit"/>
+  <property name="pwd" value="sarath"/>
+</bean>
+
+--> <bean> it indicates to container 'create object'
+--> <property> it indicates to container ' provide Data'
+
+  Dev --> Online Shopping        --> Banking Application	---> Common Functionalities
+			Database Operations				Register
+			Transaction Management				Login
+			Security ( Register & Login)			Profile
+			Email Alert					Payments
+			Schedule Tasks					Search
+									Notifications
+
+
+Spring Boot
+===========
+Spring Boot is a Framework created using Spring F/W only.
+It behaves like Parent Project to our project (Child Project)
+that provides commons code.
+EX:
+Database Connection
+Curd Operation
+Security
+Transaction Management
+Email Alert
+Scheduled Task.. etc
+
+Above common things are handled by Spring Boot Parent Project. So, work reduced to programmer.
+
+Auto-configuration
+------------------
+Providing common setup for a task/module in application that gives common classes, config files,
+JARS,servers, Database and plugins...etc.
+
+
+In Spring we need to write configuration and need to implement/add JARS.
+
+In Spring Boot just add  spring-boot-starter-jdbc (Maven/Gradle) we should add inside your child project.
+
+Then All required setup for JDBC is given by Parent Project to your project.
+
+
+Q) What is starter? Spring-boot-starter-________
+A) It is a JAR file that contains ready made code which is common for every project.
+
+Ex:
+   Spring-boot-starter-jdbc , will do by spring boot
+   Database Connection
+   Connection Pooling
+   Enable Support For Tx Management
+   JDBCTemplate

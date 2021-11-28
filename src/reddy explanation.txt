@@ -1,0 +1,295 @@
+JAVA ABSTRACTION --- UNNECESSAY DATA HIDE THE DATA IMPLEMENTATION(INTERNAL FUCNTIONALITY)
+
+ENCAPSULATION -- DATA AND METHODS COMBINING (PROVIDING SECURITY) DATA MEMNBERS AS PRIVATE
+
+USER NOT ACCESS IN ENACAPSULATION 
+
+
+SERIALIZTION IS ALSO USED FOR SECURITY ---
+
+TRANSIENT --- CONVERT OBJECT DATA INTO BYTECODE THROUGH  -- serialization
+
+stirctFp --- at the time of floating point calcultaion
+
+volatile -- get the data from main memory not from thread cache
+
+
+
+
+
+NATIVE -- WITHDRAW METHOD -- IF METHOD IS DIFFICULT IN JAVA 
+The native keyword is applied to a method to indicate that the method is implemented in 
+native code using JNI (Java Native Interface). native is a modifier applicable only for methods
+and we can't apply it anywhere else. The methods which are implemented in C, C++ are called as 
+native methods or foreign methods --get the native code from other platforms
+
+compile time -- method overloading -- method overriding --- 
+
+Runtime -- dynamic method dispatch --- this method used for setter and getters
+
+
+how many ways to create Objects 
+-------------------------------
+new keyword
+constructor
+static -- anywhere we can access in the class.
+setters and getters method 
+
+String --- immmutable -- it store data in heap and constent pool.
+
+String literal 
+String using new keyword
+
+String a = "100";
+
+a = "200";
+
+StringBuffer -- synchronized, threadsafe -- it may be occurs deadlock.
+StringBuilder -- mutable -- perform multiple operations at a time.
+
+constructor
+-----------
+
+At the time creation of object
+
+we can override and not able use static, final--- 
+
+final, finally, finalize
+------------------------
+final --
+variable-- we can't changes the final values it is used for constant
+method -- it not able to use override 
+class -- inheritance is not works
+
+finalize() 
+--------
+it is called by GC. System.gc()
+
+before the destroying the objects.
+
+finally block 
+-------------
+
+
+Exceptions is super class of all exceptions 
+
+Throws -- we can through the default exception
+throw -- custom exceptions through by it.
+
+Abstract class
+--------------
+normal members 
+concrete methods
+abstract methods
+
+70 - 80 % abstraction
+
+
+Interface
+---------
+public static final variable
+public abstract methods alone
+
+object is created by implementation class
+
+
+Interface sample
+{
+	int a;
+}
+
+Inheritance 
+-----------
+Code Reusability , Code Extendability
+disadvantage -- memory wastage --- 
+
+
+collections 
+------------
+set list map
+set will not 
+
+enum {janavary,}; --- constact collection
+iterator -- slow its used for legacy class as well as normal classes.
+
+enumaration is legacy classes
+
+
+trasaction
+
+
+Acid
+
+logb x = y
+
+b y = x
+
+JPA repository
+CURD repository
+pagination repository
+
+eGurkha Product
+---------------
+Admin 
+Monitor
+Reporter
+Configuration
+
+eG Enterprise is a total performance management solution that provides automated IT monitoring, 
+diagnosis, and reporting to troubleshoot application slowdowns, user experience issues, network 
+outages, virtualization bottlenecks, server failures, storage hotspots, and more.
+
+eG Enterprise uses a combination of agent-based and agentless approach to monitor the health and 
+performance of the entire IT infrastructure from application code to bare metal across physical, 
+virtual and cloud, and hybrid IT environments – from a single pane of glass. Using a patented 
+performance correlation and root cause diagnosis technology, eG Enterprise simplifies performance 
+troubleshooting, resulting in faster problem resolution and increased operational efficiency for 
+IT pros.
+
+
+
+Built-In Reports and Analytics for Trending, Forecasting and Capacity Planning
+==============================================================================
+
+eG Enterprise provides personalized views for different stakeholders in your organization. 
+Real-time dashboards can be created and viewed in minutes. Aggregated metrics provide 
+enterprise-wide views of IT demand, quality and utilization.
+
+eG Enterprise also offers comprehensive pre-built and custom reports. High-level IT service 
+performance reports help executives identify areas that need attention. Deep-dive operations 
+reports allow IT managers to zoom into the performance of specific tiers of the infrastructure. 
+Trending and forecasting reports help architects identify opportunities for optimization and 
+cost savings.
+
+
+
+
+Universal IT Monitoring Technology
+==================================
+IT Monitoring - Universal Monitoring TechnologyThe eG Universal Monitor enables the unified 
+IT monitoring of 180+ applications, 10+ operating systems, 10+ virtualization platforms and 
+20+ storage devices. Based on embedded domain expertise, the eG Universal Monitor provides 
+performance monitoring insights into end-user experience, business transactions, applications 
+and the supporting infrastructure (physical, virtual and cloud). Administrators have the 
+flexibility to choose between agent-based and agentless monitoring options.
+
+Deployment is easy - eG Enterprise can be loaded in a gold image and configured on-the-fly to 
+monitor different applications or servers.
+
+Licensing is simple - Based on the number of servers, and not on CPU/cores, the server operating 
+or even specific applications.
+
+Automatic Baselining Through Machine Learning
+=============================================
+Setting thresholds for thousands of performance metrics is tedious, time consuming and requires 
+a great deal of expertise. In many cases, the thresholds must be time-varying 
+(time of day, day of week) and cannot be set manually.
+
+eG Enterprise auto-baselines all the metrics it collects. By analyzing historical data, 
+it automatically determines time-varying thresholds. Multiple levels of thresholds are supported 
+to allow problem escalation. Alerts are triggered when deviations from the norm are noticed, 
+so you are informed pre-emptively before problems escalate and impact user experience
+
+
+Automatic Performance Correlation and Root Cause Diagnosis
+==========================================================
+
+Since IT infrastructures are very inter-dependent, a problem in one tier can ripple and affect 
+all the other tiers. New inter-dependencies introduced by virtualization and cloud computing 
+further accentuate the situation.
+
+eG Enterprise embeds the industry's first truly virtualization- and cloud-aware root cause 
+diagnosis technology. Discovering application-to-application, application-to-VM and VM-to-host 
+and host-to-storage dependencies, eG Enterprise correlates performance alerts from different tiers 
+and automatically pinpoints where the root cause of a problem lies. This way you can differentiate 
+the cause of a problem from its effects and resolve performance issues in minutes rather than in days.
+
+
+
+
+
+Improve Business Outcomes with IT Monitoring and Proactive Performance Management
+---------------------------------------------------------------------------------
+ Application Availability
+On an average, one hour of downtime costs businesses $474,000 in lost revenue. 
+eG Enterprise helps you to monitor, pre-emptively detect and quickly resolve application issues. 
+This way, you can prevent downtime and ensure great performance and user satisfaction and save 
+your business tons of money.
+
+ Migration
+When application infrastructures are migrated, user experience is key. IT performance management 
+& proactive monitoring helps you benchmark performance before and after migration. Comparing key 
+metrics, you can identify problems introduced during migration and fix them quickly as they arise.
+
+ Cost Reduction
+Many a times, hardware is added indiscreetly in a bid to solve performance problems. 
+This results in cost overruns and stalls IT transformation initiatives. eG Enterprise helps you 
+identify bottlenecks, maximize resource utilization and reduce hardware and software costs and 
+to right-size your IT infrastructure.
+
+ Scaling Rollouts
+IT managers are looking for ways to scale their infrastructure – to support more users, 
+new workloads, etc. eG Enterprise’s historical reporting and predictive analytics help identify 
+bottlenecks in the infrastructure. Thus, you can determine where to make investments to allow the 
+infrastructure to scale.
+
+ Operational Efficiency
+By making it possible to diagnose problems with one click, eG Enterprise empowers helpdesk personnel 
+to manage and troubleshoot performance issues. This way, organizations can significantly reduce their 
+IT operations costs.
+
+ Compliance Tracking
+Track user logins, access durations and application usage for compliance reporting. Alert on 
+exceptions for immediate remediation. Detect and report history of configuration changes and 
+cross-correlate with performance degradations.
+
+ Performance Optimization
+As IT infrastructures become software-defined, adding more hardware only alleviates performance 
+problems temporarily. With visibility into the performance of every layer, every tier of the 
+infrastructure, you can determine how to optimally utilize the current infrastructure investments 
+to do more.
+
+ Release Preparedness
+Prior to release, get the diagnostics and actionable intelligence you need to eliminate any 
+bottleneck areas. Immediately after deployment, get the deep visibility and insights you need 
+to troubleshoot and resolve new issues quickly.
+
+End to End Data Center Proactive Monitoring
+Proactive Monitoring Software with Singe-Pane-of-Glass Visibility Across the IT Environment
+
+Application Monitoring Benefits
+-------------------------------
+ Ensure User Satisfaction
+By identifying the cause of problems quickly, eG Enterprise helps organizations resolve 
+performance issues quickly, reduce service downtime and thereby increase user productivity 
+and satisfaction.
+
+ Save Business Revenue
+eG Enterprise helps businesses detect and fix problems in advance, before users complain. 
+Since every minute of downtime and slowness costs thousands of dollars, eG Enterprise offers 
+tangible and significant cost savings.
+
+ Lower IT Operations Costs
+eG Enterprise empowers IT helpdesks to play an active role in day to day IT operations. 
+Instead of merely acting as a pass through, IT helpdesks can take care of initial problem 
+identification and triage, so just the right IT experts are involved in troubleshooting a problem.
+
+ Increase Operational Efficiency
+With eG Enterprise in place, IT experts spend less time fire-fighting routine problems. 
+They are only involved when complex issues crop up. Thereby, these expensive resources 
+get more time to spend on productive activities that yield higher returns for the organization.
+
+ Safeguard New Investments
+IT organizations invest millions of dollars in new initiatives around virtualizing servers 
+and desktops, migrating versions of applications or moving applications to the cloud. 
+eG Enterprise’s total performance visibility provides organizations just what they need to 
+identify and fix performance bottlenecks in a timely manner, thereby ensuring the success of 
+the new initiatives.
+
+ Do More with Less
+eG Enterprise’s universal insight technology provides IT managers and architects just the 
+visibility they need to optimize their IT infrastructure. By balancing load, understanding 
+usage patterns and bottlenecks, they can decide how to reconfigure their applications and 
+servers to support the maximum workload. Empirical data provided by eG Enterprise helps 
+organizations plan efficiently for future growth.
+

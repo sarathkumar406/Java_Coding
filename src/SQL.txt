@@ -1,0 +1,235 @@
+Triggers
+--------
+its a procedure that starts automatically if specified changes occur to the DBMS
+
+DB Triggers has 3 Parts
+1. Trigger Event
+2. Condition ( Optional )
+3. Trigger Action
+
+When an event occur, the DB Trigger is fired (Execeuted) and pre-defined PL/SQL block will perform necessory in the trigger.
+
+Create [ OR Replace ] Trigger Trigger_name
+[before/after] trigger event 
+ON table_Name
+[for Each row]
+[when Condition]
+
+Declare
+	declaration statements
+Begin
+	Executable Statements;
+Exception
+	Exception-handling statements;
+END;
+
+
+Program
+-------
+ID	Name	AGE	ADDRESS		SALARY
+1	SARATH	32	DELHI		2000
+2	KUMAR	23	HYD		3000
+3	SAI	43	MUMBAI		5000
+4	KIRAN	23	PUNE		10000
+5	TEJ	24	AP		12000
+Select * from Customers;
+
+TRIGGER DISPLAYS THE SALARY DIFF
+--------------------------------
+
+create or replace trigger display_sal_change
+before
+DELETE OR INSERT OR UPDATE
+ON Customers
+FOR EACH ROW
+WHEN ( NEW.ID > 0 )
+
+DECLARE 
+	SALARY_DIFF NUMBER;
+BEGIN
+	SALARY_DIFF:=:NEW.SALARY - :OLD.SALARY;
+   DBMS_OUTPUT.PUT_LINE('OLD SALARY:'//:OLD.SALARY);
+   DBMS_OUTPUT.PUT_LINE('NEW SALARY:'//:NEW.SALARY);
+   DBMS_OUTPUT.PUT_LINE('SALARY_DIFF SALARY:'//:SALARY_DIFF.SALARY);
+END
+
+
+PL/SQL Structure
+----------------
+DECLARE
+   Declaration statements;
+BEGIN
+   Execution statements;
+ EXCEPTION
+      Exception handling statements;
+END;
+/
+
+procedure
+---------
+
+CREATE [OR REPLACE] PROCEDURE proc_name [list of parameters] 
+IS | AS    
+   //Declaration block 
+BEGIN    
+   //Execution block 
+EXCEPTION    
+  //Exception block 
+END;
+
+
+CREATE OR REPLACE PROCEDURE hello_world
+AS
+BEGIN
+   dbms_output.put_line('Hello World!');
+END;
+/
+
+CREATE OR REPLACE PROCEDURE add_student(rollNo IN NUMBER, name IN VARCHAR2)
+IS 
+   BEGIN 
+    insert into students values(rollNo,name);
+  END;
+/
+
+Execute by
+----------
+EXEC procedure_name();
+EXEC procedure_name;
+
+EXEC procedure_name(param1,param2…paramN);
+
+DROP PROCEDURE procedure_name;
+
+
+
+Syntax of pl sql function:
+--------------------------
+CREATE [OR REPLACE] FUNCTION function_name [parameters] 
+RETURN return_datatype;  
+IS|AS
+	//Declaration block
+BEGIN  
+	//Execution_block 
+	Return return_variable;  
+EXCEPTION  
+	//Exception block  
+	Return return_variable;  
+END; 
+ /
+
+
+ How to create a function?
+ -------------------------
+create or replace function getMultiple(num1 in number, num2 in number)    
+return number    
+is     
+  num3 number(8);    
+begin    
+  num3 :=num1*num2;    
+  return num3;    
+end;    
+/
+
+How to execute a function?
+--------------------------
+A functions return value can be assign to a variable.
+
+result :=  getMultiple(4, 5);
+As a part of a SELECT statement:
+
+SELECT getMultiple(4, 5) FROM dual;
+
+In a PL/SQL Statement:
+---------------------
+dbms_output.put_line(getMultiple(4, 5));
+How to drop a function?
+-----------------------
+DROP FUNCTION function_name;
+
+
+Where vs Having
+
+where, we can use normal filter
+having is used with aggregate functions
+
+Select max(sal) from emp having sal>1000;
+
+UNION VS UNION ALL
+
+UNION -- remove duplicate values ( same no.of columns , columns must be in same order, columns must be same datatype)
+UNION-ALL -- Doesn't remove duplicate values
+
+IN VS EXISTS
+------------
+IN -- Compare one value to several values..
+EXISTS --- Tells you whether a query returned any results... ( returns either true or false )
+
+
+Group BY vs Order BY
+--------------------
+order by --- basically sorting (ASC or DESC)
+
+Group BY --- Used with aggregate functions.
+
+-> Group by follows where clause is Select statements.
+-> Where cannot be used after 'Group BY'.
+-> 'Having' is used after 'Group By' 
+
+JOIN Vs SubQuery
+-----------------
+
+JOIN is faster than SubQuery
+
+JOIN Vs UNION
+-------------
+unions combines rows 
+
+JOIN merges columns
+
+
+JOINS 
+=====
+Joining two or more tables based on related column.
+
+Inner join
+----------
+select Order.orid, customers.name from Orders Inner join customers on orders.custid = customers.id;
+
+LEFT JOIN
+---------
+All rows from left table and common records from right table.
+
+Select Orders.oid, customers.name from orders left join customers ON orders.custid = customer.id;
+
+RIGHT JOIN
+----------
+ALL recods from right table and common records from left table.
+
+Select Orders.oid, customers.name from orders right join customers ON orders.custid = customer.id;
+
+FULL OUTER JOIN
+---------------
+ALL THE ROWS FROM RIGHT AND LEFT TABLE
+
+SELF JOIN
+---------
+Table is joining itslef.
+select Distinct e.name from emp e inner join emp m ON e.eid = m.mid;
+
+
+Select * from emp where sal = (select Max(sal) from emp);
+
+SELECT ename,sal from Employee e1 where 
+        N-1 = (SELECT COUNT(DISTINCT sal)from Employee e2 where e2.sal > e1.sal) 
+
+DDL -- create,alter,drop,truncate,comment,rename
+
+DQL -- Select
+
+DML -- Insert,update,delete
+
+DCL - grant,revoke
+
+TCL -- Commit,rollback,savepoint,set transaction
+

@@ -1,0 +1,119 @@
+Serialization & Deserialization
+===============================
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Main implements Serializable
+{
+	private int a;
+	private static int b;
+	 public Main(int a, int b){
+		 this.a = a;
+		 this.b= b;
+	 }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Main m = new Main(100,200);
+		m.printValues();
+
+		//serialization
+		File file = new File("sample.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(m);
+		oos.close();
+		fos.close();
+		m.b = 300;
+
+
+		FileInputStream fis = new FileInputStream(file);
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		Main m1 = (Main)ois.readObject();
+		m1.printValues();
+		ois.close();
+		fis.close();
+
+	}
+
+	public void printValues(){
+		System.out.println(a);
+		System.out.println(b);
+	}
+}
+
+when we give the static variable output is 
+100
+200
+100
+300
+
+when we give the transient variable output is 
+100
+200
+100
+0
+
+//need to override hashCode() and equals() methods in HashSet
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Employee e1 = new Employee(123,"sarat");
+        Employee e2 = new Employee(234,"kumar");
+        Employee e3 = new Employee(123,"sarat");
+
+        Set<Employee>  set = new HashSet<>();
+        set.add(e1);
+        set.add(e2);
+        set.add(e3);
+        ArrayList<Employee> al = new ArrayList<>();
+        al.add(e1);
+        al.add(e2);
+        al.add(e3);
+
+        System.out.println(al.size());
+        System.out.println(set.size());
+	}
+}
+
+class Employee{
+    private int empid;
+    private String empName;
+
+    public Employee(int empid,String empName){
+        this.empid = empid;
+        this.empName = empName;
+    }
+
+
+    public int hashCode(){
+        return empid;
+    }
+
+    public boolean equals(Object obj){
+        if(obj!=null)
+        {
+            if(obj instanceof Employee)
+            {
+                Employee e1 = (Employee)obj;
+                return e1.empid == empid;
+            }
+        }
+        return false;
+
+    }
+}
+
+
+
+
+

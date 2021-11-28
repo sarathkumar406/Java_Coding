@@ -1,0 +1,156 @@
+==============================================================================================
+1. Write a method to remove a given value from array list having string values.
+	
+	private static void RemoveArrayListValue(List<String> al, String str){
+		
+		System.out.println("List Values before remove : "+al);
+		//Approach #1
+		boolean res = al.remove(str);
+		if(res){
+			System.out.println("List Values after remove : "+al);
+		}
+		else{
+			System.out.println("List doesn't contain value entered by you : "+str);
+		}
+	}
+==============================================================================================
+2. Write a method to return the maximum value from an integer array passed as an input parameter.
+
+	private static int arrayMaxValue(int[] arr){
+		int max = Integer.MIN_VALUE;
+		for(int i =0;i<arr.length;i++){
+			if(arr[i] > max)
+			{
+				max = arr[i];
+			}
+		}
+		return max;
+	}
+==============================================================================================
+3. Write a method to update the city attribute of Student object array list passed as an input parameter. 
+   If the city is "Mumbai" then change it to "Delhi". The method should return how many student records 
+   were updated.
+
+	private static int updateRecord(ArrayList<Student> al) {
+		int count =0;
+		for(int i =0;i<al.size();i++) 
+		{
+			if(al.get(i).getCity().equals("Mumbai"))
+			{
+				al.get(i).setCity("Delhi");
+				count++;
+			}
+		}
+			
+		return count;
+
+	}
+==============================================================================================	
+
+4. Write a method to check whether the strings passed as input parameters are made up of the same set of 
+   characters.
+
+private static void checkSameSet(String str, String str1) {
+		char[] ch = str.toCharArray();
+		char[] ch1 = str1.toCharArray();
+		Arrays.sort(ch);
+		Arrays.sort(ch1);
+		if(ch.length!=ch1.length)
+		{
+			System.out.println("Length of the two Strings should be Same");
+			return;
+		}
+		boolean res = true;
+		for(int i =0;i<ch.length;i++) {
+			if(ch[i]!=ch1[i]) {
+				res = false;
+			}
+			
+		}
+		if(res)
+		{
+			System.out.println("Same Set of Characters");
+		}
+		else
+		{
+			System.out.println("Not a Same Set of Characters");
+		}
+		
+	}
+==============================================================================================	
+5. Write a method to remove duplicate values from an array list passed as an input parameter.
+
+	private static void removeDeuplicate(List<Integer> al){
+
+		Set<Integer> as = new LinkedHashSet<>();
+		as.addAll(al);
+		al.clear();
+		al.addAll(as);
+		System.out.println(al);
+	}
+==============================================================================================	
+6. Write a method to return the second largest element in an integer array passed as an input parameter.
+
+	private static void findSecondLargest(int[] arr){
+
+		int first = Integer.MIN_VALUE;
+		int second = Integer.MIN_VALUE;
+		if(arr.length < 2){
+			System.out.println("Invalid Input");
+			return;
+		}
+		for(int i =0;i<arr.length;i++){
+			if(arr[i] > first)
+			{
+				second = first;
+				first = arr[i];
+			}
+
+			if(second < arr[i] && first != arr[i])
+			{
+				second = arr[i];
+			}
+		}
+
+		System.out.println(second);
+
+	}
+==============================================================================================	
+
+7. Write a method to reverse an integer array passed as an input parameter.
+	
+	private static int[] reverseArray(int[] arr){
+
+		int n = arr.length;
+		int count = 0;
+		int[] res = new int[n];
+		for(int i =n-1;i>=0;i--){
+			res[count++] = arr[i];
+		}
+		return res;
+	}
+
+==============================================================================================
+8. Write a method to return the odd numbers and their frequency from an integer array list passed as an 
+   input parameter.
+
+	private static Map<Integer,Integer> oddFrequencyCount(List<Integer> al){
+		
+		HashMap<Integer,Integer> hm = new HashMap<>();
+		
+		for(int i=0;i<al.size();i++){
+			if(al.get(i)%2!=0)
+			{
+				if(hm.containsKey(al.get(i)))
+				{
+					hm.put(al.get(i),hm.get(al.get(i))+1);
+				}
+				else
+				{
+					hm.put(al.get(i),1);
+				}
+			}
+		}
+		return hm;
+	}
+==============================================================================================
